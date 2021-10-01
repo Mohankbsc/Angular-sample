@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+
+body { background-color: #e9ecef; font-size: 13px; margin-top: 57px; }
+
+a { color: #0366d6; }
+
+code { color: #e01a76; }
+
+.btn-primary { color: #fff; background-color: #1b6ec2; border-color: #1861ac; }
+
+.table td, .table th { vertical-align: middle; font-size: 13px; padding: 3px; }
+.table th { }
+
+.services .card i { font-size: 34px; float: left; cursor: default }
+.services .card h6, .services .card p { margin-left: 70px; cursor: default;}
+.services .card h6:hover { color: #ff0000; }
+input.form-control, select.form-control { font-size: 13px; }
+
+.loader { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: #fff; }
+  .loader img { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+@media (max-width: 1024px) { .services .card h6 { font-size: 14px; }
+}

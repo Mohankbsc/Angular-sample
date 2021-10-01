@@ -1,0 +1,133 @@
+<section>
+  <h5 class="font-weight-bold mb-2 mt-3">The Services We Offer</h5>
+
+  <div class="row services">
+    <div class="col-md-12 col-lg-6 mb-3">
+      <div class="card d-inline-block p-4 bg-white border-0 shadow-sm w-100 h-100">
+        <i class="fa fa-television text-danger" aria-hidden="true"></i>
+        <h6 class="font-weight-bold">Product Engineering</h6>
+        <p class="mb-0">New Product Development, Product Testing, Product Maintenance, Product Integration, Product Support</p>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-6 mb-3">
+      <div class="card d-inline-block p-4 bg-white border-0 shadow-sm w-100 h-100">
+        <i class="fa fa-bar-chart text-danger" aria-hidden="true"></i>
+        <h6 class="font-weight-bold">Legacy Transformation</h6>
+        <p class="mb-0">Product Transition Planning, Design and Re-Architecture, Re-Engineering, Migration Strategies, Application and Data Migration</p>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-6 mb-3">
+      <div class="card d-inline-block p-4 bg-white border-0 shadow-sm w-100 h-100">
+        <i class="fa fa-picture-o text-danger" aria-hidden="true"></i>
+        <h6 class="font-weight-bold">Mobile App Development</h6>
+        <p class="mb-0">App Development, App Testing, App Maintenance</p>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-6 mb-3">
+      <div class="card d-inline-block p-4 bg-white border-0 shadow-sm w-100 h-100">
+        <i class="fa fa-calendar-check-o text-danger" aria-hidden="true"></i>
+        <h6 class="font-weight-bold">System Integration</h6>
+        <p class="mb-0">Product Customization, 3rd Party Tools/Applications Integration</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card p-4 mb-4 shadow-sm">
+    <div class="row mb-3 mb-md-0">
+      <div class="col-md-4 mb-3 mb-md-0">
+        <label class="d-block font-weight-bold">Textbox</label>
+        <input placeholder="Enter Details" class="form-control" value="" [(ngModel)]="inputvalue">
+      </div>
+
+      <div class="col-md-4 mb-2 mb-md-0">
+        <label class="d-block font-weight-bold">Dropdown</label>
+        <select name="selectedQuantity" id="aantal" class="form-control" [(ngModel)]="selectedName">
+          <option *ngFor="let option of options" [value]="option">{{option}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label class="d-none d-md-block font-weight-bold">&#160;</label>
+        <button class="btn btn-primary btn-sm" (click)="submitclick()" type="button" name="button">Submit</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <p class="mb-0">Textbox : <strong>{{inputvalue}}</strong></p>
+      </div>
+      <div class="col-md-4">
+        <p class="mb-0">Selected Name : <strong>{{selectedName}}</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mb-3">
+      <div class="card shadow-sm p-3">
+        <h6 class="font-weight-bold">Customer Status</h6>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th class="text-left">#</th>
+                <th class="text-left">Account Name</th>
+                <th class="text-left">Item</th>
+                <th class="text-right">Units</th>
+                <th class="text-right">Unit Cost</th>
+                <th class="text-right">Total</th>
+                <th class="text-center">Status</th>
+                <th class="text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let information of informations; index as i" [attr.id]="information.name">
+                <td class="text-left">{{i + 1}}</td>
+                <td class="text-left">{{information.name}}</td>
+                <td class="text-left">{{information.item}}</td>
+                <td class="text-right">{{information.units | number}}</td>
+                <td class="text-right">{{information.unitcost | number}}</td>
+                <td class="text-right">{{information.total | number}}</td>
+                <td class="text-center" [ngStyle]="{'color':information.status === 'Failed' ? 'red' : 'green' }">{{information.status}}</td>
+                <td class="text-right"><a href="javascript:void(0)" id="remove" class="text-danger" (click)="deleteRow(information.name)"><i class="fa fa-trash" aria-hidden="true" title="Delete"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <button class="btn btn-primary btn-sm float-left" (click)="toggle()">Contact Details</button>
+      <!--<div class="pull-right mb-0" [innerHTML]="message"></div>-->
+
+      <div class="float-right mt-2" [ngSwitch]="mySwitch">
+        <div *ngSwitchCase="'one'">
+          <p class="mb-0">Switch Case One</p>
+        </div>
+
+        <div *ngSwitchCase="'two'">
+          <p class="mb-0">Switch Case Two</p>
+        </div>
+
+        <div *ngSwitchCase="'three'">
+          <p class="mb-0">Switch Case Three</p>
+        </div>
+
+        <div *ngSwitchDefault>
+          <p class="mb-0">Switch Case Default</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <ul class="pl-0 card bg-white shadow-sm p-4 d-flex justify-content-between" *ngIf="showData">
+        <li class="list-unstyled" *ngFor="let item of items;">
+          {{item}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</section>
